@@ -153,7 +153,8 @@
             <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
 
                 <!-- TRACK 1: Midnight Frequencies -->
-                <article class="rounded-xl bg-[#211C2E] p-5 transition-transform duration-300 hover:-translate-y-2">
+                <article class="flex h-full flex-col rounded-xl bg-[#211C2E] p-5 transition-transform duration-300 hover:-translate-y-2">
+                    
 
                     <img
                         src="assets/images/midnight-frequencies.png"
@@ -174,12 +175,39 @@
                         A slow-burning electronic track built on distant
                         synths and cinematic tension.
                     </p>
+                    <!-- Track Controls -->
+                    <div class="mt-auto flex items-center justify-between pt-6">
+
+                        <!-- Play Button -->
+                        <button
+                            type="button"
+                            data-action="play"
+                            data-track="midnight-frequencies"
+                            aria-label="Play Midnight Frequencies"
+                            class="flex items-center gap-2 rounded-lg bg-purple-600 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-purple-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-300"
+                        >
+                            <i data-lucide="play" class="h-4 w-4"></i>
+                            <span>Play</span>
+                        </button>
+
+                        <!-- Favorite Button -->
+                        <button
+                            type="button"
+                            data-action="favorite"
+                            data-track="midnight-frequencies"
+                            aria-label="Add Midnight Frequencies to favorites"
+                            aria-pressed="false"
+                            class="rounded-full p-2 text-purple-400 transition-colors hover:bg-purple-500/20 hover:text-purple-300 focus-visible:outline-2 focus-visible:outline-purple-300"
+                        >
+                            <i data-lucide="heart" class="h-5 w-5"></i>
+                        </button>
+
+                    </div>
 
                 </article>
 
                 <!-- TRACK 2: Neon Ghosts -->
-                <article class="rounded-xl bg-[#211C2E] p-5 transition-transform duration-300 hover:-translate-y-2">
-
+                <article class="flex h-full flex-col rounded-xl bg-[#211C2E] p-5 transition-transform duration-300 hover:-translate-y-2">
                     <img
                         src="assets/images/neon-ghosts.png"
                         alt="Neon Ghosts album artwork"
@@ -199,11 +227,39 @@
                         Haunting melodies drift through neon-lit soundscapes,
                         blurring the line between memory and reality.
                     </p>
+                    
+                    <!-- Track Controls -->
+                    <div class="mt-auto flex items-center justify-between pt-6">
+
+                        <button
+                            type="button"
+                            data-action="play"
+                            data-track="neon-ghosts"
+                            aria-label="Play Neon Ghosts"
+                            class="flex items-center gap-2 rounded-lg bg-purple-600 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-purple-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-300"
+                        >
+                            <i data-lucide="play" class="h-4 w-4"></i>
+                            <span>Play</span>
+                        </button>
+
+                        <button
+                            type="button"
+                            data-action="favorite"
+                            data-track="neon-ghosts"
+                            aria-label="Add Neon Ghosts to favorites"
+                            aria-pressed="false"
+                            class="rounded-full p-2 text-purple-400 transition-colors hover:bg-purple-500/20 hover:text-purple-300 focus-visible:outline-2 focus-visible:outline-purple-300"
+                        >
+                            <i data-lucide="heart" class="h-5 w-5"></i>
+                        </button>
+
+                    </div>
+
 
                 </article>
 
                 <!-- TRACK 3: Afterglow Static -->
-                <article class="rounded-xl bg-[#211C2E] p-5 transition-transform duration-300 hover:-translate-y-2">
+                <article class="flex h-full flex-col rounded-xl bg-[#211C2E] p-5 transition-transform duration-300 hover:-translate-y-2">
 
                     <img
                         src="assets/images/afterglow-static.png"
@@ -224,6 +280,36 @@
                         A hypnotic blend of distorted synths, pulsing rhythms,
                         and the fading warmth of a midnight horizon.
                     </p>
+                    
+                    
+                        <!-- Track Controls -->
+                        <div class="mt-auto flex items-center justify-between pt-6">
+
+                            <button
+                                type="button"
+                                data-action="play"
+                                data-track="afterglow-static"
+                                aria-label="Play Afterglow Static"
+                                class="flex items-center gap-2 rounded-lg bg-purple-600 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-purple-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-300"
+                            >
+                                <i data-lucide="play" class="h-4 w-4"></i>
+                                <span>Play</span>
+                            </button>
+
+                            <button
+                                type="button"
+                                data-action="favorite"
+                                data-track="afterglow-static"
+                                aria-label="Add Afterglow Static to favorites"
+                                aria-pressed="false"
+                                class="rounded-full p-2 text-purple-400 transition-colors hover:bg-purple-500/20 hover:text-purple-300 focus-visible:outline-2 focus-visible:outline-purple-300"
+                            >
+                                <i data-lucide="heart" class="h-5 w-5"></i>
+                            </button>
+
+                        </div>
+
+
 
                 </article>
 
