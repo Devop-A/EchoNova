@@ -783,6 +783,9 @@
     .hover\:bg-purple-700:hover {
       background-color: var(--color-purple-700);
     }
+    .hover\:text-purple-200:hover {
+      color: var(--color-purple-200);
+    }
     .hover\:text-purple-300:hover {
       color: var(--color-purple-300);
     }

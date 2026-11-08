@@ -150,6 +150,71 @@ audio.addEventListener("emptied", updateProgress);
 // Initialize the progress display
 updateProgress();
 
+// ====================================
+// ECHO NOVA - VOLUME CONTROLS
+// ====================================
+
+// Find our HTML elements
+const volumeSlider = document.getElementById("player-volume");
+
+const muteButton = document.getElementById("player-mute");
+
+const volumeOnIcon = document.getElementById("volume-on-icon");
+
+const volumeOffIcon = document.getElementById("volume-off-icon");
+
+// Update our volume controls
+function updateVolumeControls() {
+  // Determine whether audio is effectively silent
+  const isMuted = audio.muted || audio.volume === 0;
+
+  // Update the slider to match the actual volume
+  volumeSlider.value = audio.volume;
+
+  // Show the correct speaker icon
+  volumeOnIcon.classList.toggle("hidden", isMuted);
+
+  volumeOffIcon.classList.toggle("hidden", !isMuted);
+
+  // Update accessibility information
+  muteButton.setAttribute(
+    "aria-label",
+    isMuted ? "Unmute audio" : "Mute audio",
+  );
+
+  muteButton.setAttribute("aria-pressed", String(isMuted));
+}
+
+// Change volume when the slider moves
+volumeSlider.addEventListener("input", function () {
+  // Read the slider value as a number
+  const newVolume = Number(volumeSlider.value);
+
+  // Apply the new volume to our audio
+  audio.volume = newVolume;
+
+  // Moving the slider also unmutes the audio
+  audio.muted = false;
+});
+
+// Toggle mute when the speaker button is clicked
+muteButton.addEventListener("click", function () {
+  // If volume is zero, restore it to 80%
+  if (audio.volume === 0) {
+    audio.volume = 0.8;
+    audio.muted = false;
+  } else {
+    // Otherwise, toggle between muted and unmuted
+    audio.muted = !audio.muted;
+  }
+});
+
+// Keep the controls synchronized
+audio.addEventListener("volumechange", updateVolumeControls);
+
+// Set the initial appearance
+updateVolumeControls();
+
 // Find the button using its ID.
 const button = document.getElementById("test-button");
 
