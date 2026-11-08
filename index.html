@@ -1,326 +1,404 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>ECHO NOVA | Official Website</title>
 
     <!-- Load our Tailwind stylesheet -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css" />
 
-    
     <!-- Lucide Icon Library -->
-    <script src="https://unpkg.com/lucide@0.474.0/dist/umd/lucide.min.js" defer></script>
+    <script
+      src="https://unpkg.com/lucide@0.474.0/dist/umd/lucide.min.js"
+      defer
+    ></script>
 
-     <!-- Our JavaScript -->
+    <!-- Our JavaScript -->
     <script src="script.js" defer></script>
-</head>
+  </head>
 
-<body class="bg-[#10101C] text-white min-h-screen">
-
-    
-<!-- Website Header -->
-<header class="sticky top-0 z-50 bg-[#191625]/95 border-b border-purple-500/20 backdrop-blur-md">
-
-    <!-- Navigation Container -->
-    <nav class="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between" aria-label="Main navigation">
-
+  <body class="bg-[#10101C] text-white min-h-screen">
+    <!-- Website Header -->
+    <header
+      class="sticky top-0 z-50 bg-[#191625]/95 border-b border-purple-500/20 backdrop-blur-md"
+    >
+      <!-- Navigation Container -->
+      <nav
+        class="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
+        aria-label="Main navigation"
+      >
         <!-- Artist Branding -->
-        <a href="#home" class="text-2xl font-bold tracking-widest text-purple-400">
-            ECHO NOVA
+        <a
+          href="#home"
+          class="text-2xl font-bold tracking-widest text-purple-400"
+        >
+          ECHO NOVA
         </a>
 
         <!-- Navigation Links -->
         <div class="flex flex-wrap items-center gap-5 text-sm text-gray-200">
+          <a href="#home" class="hover:text-purple-400 transition-colors">
+            Home
+          </a>
 
-            <a href="#home" class="hover:text-purple-400 transition-colors">
-                Home
-            </a>
+          <a href="#music" class="hover:text-purple-400 transition-colors">
+            Music
+          </a>
 
-            <a href="#music" class="hover:text-purple-400 transition-colors">
-                Music
-            </a>
+          <a href="#about" class="hover:text-purple-400 transition-colors">
+            About
+          </a>
 
-            <a href="#about" class="hover:text-purple-400 transition-colors">
-                About
-            </a>
+          <a href="#shows" class="hover:text-purple-400 transition-colors">
+            Shows
+          </a>
 
-            <a href="#shows" class="hover:text-purple-400 transition-colors">
-                Shows
-            </a>
-
-            <a href="#contact" class="hover:text-purple-400 transition-colors">
-                Contact
-            </a>
-
+          <a href="#contact" class="hover:text-purple-400 transition-colors">
+            Contact
+          </a>
         </div>
+      </nav>
+    </header>
 
-    </nav>
-
-</header>
-
-
-    
-<main>
-
-    <!-- HERO SECTION -->
-    <section
+    <main>
+      <!-- HERO SECTION -->
+      <section
         id="home"
         class="relative flex min-h-[85vh] items-center justify-center overflow-hidden bg-[#10101C] px-6 py-24 text-center"
-    >
-
+      >
         <!-- Background Image -->
         <div
-            class="absolute inset-0 bg-cover bg-center opacity-50"
-            style="background-image: url('assets/images/echo-nova-hero.jpg');"
-            aria-hidden="true"
+          class="absolute inset-0 bg-cover bg-center opacity-50"
+          style="
+            background-image: url(&quot;assets/images/echo-nova-hero.jpg&quot;);
+          "
+          aria-hidden="true"
         ></div>
 
         <!-- Dark Gradient Overlay -->
         <div
-            class="absolute inset-0 bg-gradient-to-b from-[#10101C]/70 via-purple-950/40 to-[#10101C]"
-            aria-hidden="true"
+          class="absolute inset-0 bg-gradient-to-b from-[#10101C]/70 via-purple-950/40 to-[#10101C]"
+          aria-hidden="true"
         ></div>
 
         <!-- Hero Content -->
         <div class="relative z-10 mx-auto max-w-4xl">
+          <!-- Small Subtitle -->
+          <p
+            class="mb-5 text-sm font-semibold uppercase tracking-[0.3em] text-purple-400"
+          >
+            The Sound of the Unknown
+          </p>
 
-            <!-- Small Subtitle -->
-            <p class="mb-5 text-sm font-semibold uppercase tracking-[0.3em] text-purple-400">
-                The Sound of the Unknown
-            </p>
+          <!-- Main Headline -->
+          <h1
+            class="mb-6 text-5xl font-extrabold tracking-tight text-white md:text-7xl"
+          >
+            SOUND WITHOUT LIMITS.
+          </h1>
 
-            <!-- Main Headline -->
-            <h1 class="mb-6 text-5xl font-extrabold tracking-tight text-white md:text-7xl">
-                SOUND WITHOUT LIMITS.
-            </h1>
+          <!-- Description -->
+          <p
+            class="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-gray-300"
+          >
+            Immersive electronic music shaped by shadow, light, and atmosphere.
+          </p>
 
-            <!-- Description -->
-            <p class="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-gray-300">
-                Immersive electronic music shaped by shadow,
-                light, and atmosphere.
-            </p>
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap justify-center gap-4">
+            <a
+              href="#music"
+              class="rounded-lg bg-purple-600 px-8 py-3 font-semibold text-white transition-colors hover:bg-purple-700"
+            >
+              Explore Music
+            </a>
 
-            <!-- Action Buttons -->
-            <div class="flex flex-wrap justify-center gap-4">
-
-                <a
-                    href="#music"
-                    class="rounded-lg bg-purple-600 px-8 py-3 font-semibold text-white transition-colors hover:bg-purple-700"
-                >
-                    Explore Music
-                </a>
-
-                <a
-                    href="#about"
-                    class="rounded-lg border border-purple-400 px-8 py-3 font-semibold text-purple-200 transition-colors hover:bg-purple-500/20"
-                >
-                    About the Artist
-                </a>
-
-            </div>
-
+            <a
+              href="#about"
+              class="rounded-lg border border-purple-400 px-8 py-3 font-semibold text-purple-200 transition-colors hover:bg-purple-500/20"
+            >
+              About the Artist
+            </a>
+          </div>
         </div>
-
-    </section>
-    <!-- MUSIC SECTION -->
-    <section id="music" class="scroll-mt-20 bg-[#10101C] px-6 py-24">
-
+      </section>
+      <!-- MUSIC SECTION -->
+      <section id="music" class="scroll-mt-20 bg-[#10101C] px-6 py-24">
         <!-- Main Container -->
         <div class="mx-auto max-w-6xl">
+          <!-- Section Heading -->
+          <div class="mb-12">
+            <p
+              class="mb-3 text-sm font-semibold uppercase tracking-widest text-purple-400"
+            >
+              Discover the Sound
+            </p>
 
-            <!-- Section Heading -->
-            <div class="mb-12">
+            <h2 class="mb-4 text-4xl font-bold text-white">Latest Releases</h2>
 
-                <p class="mb-3 text-sm font-semibold uppercase tracking-widest text-purple-400">
-                    Discover the Sound
-                </p>
+            <p class="text-gray-400">Explore the sound of ECHO NOVA.</p>
+          </div>
 
-                <h2 class="mb-4 text-4xl font-bold text-white">
-                    Latest Releases
-                </h2>
+          <!-- Music Card Grid -->
+          <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+            <!-- TRACK 1: Midnight Frequencies -->
+            <article
+              class="flex h-full flex-col rounded-xl bg-[#211C2E] p-5 transition-transform duration-300 hover:-translate-y-2"
+            >
+              <img
+                src="assets/images/midnight-frequencies.png"
+                alt="Midnight Frequencies album artwork"
+                class="mb-5 aspect-square w-full rounded-lg object-cover"
+                loading="lazy"
+              />
 
-                <p class="text-gray-400">
-                    Explore the sound of ECHO NOVA.
-                </p>
+              <p
+                class="mb-2 text-xs font-semibold uppercase tracking-widest text-purple-400"
+              >
+                Single • 2026
+              </p>
 
-            </div>
+              <h3 class="mb-3 text-xl font-bold text-white">
+                Midnight Frequencies
+              </h3>
 
-            <!-- Music Card Grid -->
-            <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+              <p class="text-sm leading-relaxed text-gray-400">
+                A slow-burning electronic track built on distant synths and
+                cinematic tension.
+              </p>
+              <!-- Track Controls -->
+              <div class="mt-auto flex items-center justify-between pt-6">
+                <!-- Play Button -->
+                <button
+                  type="button"
+                  data-action="play"
+                  data-track="midnight-frequencies"
+                  aria-label="Play Midnight Frequencies"
+                  class="flex items-center gap-2 rounded-lg bg-purple-600 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-purple-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-300"
+                >
+                  <i data-lucide="play" class="h-4 w-4"></i>
+                  <span>Play</span>
+                </button>
 
-                <!-- TRACK 1: Midnight Frequencies -->
-                <article class="flex h-full flex-col rounded-xl bg-[#211C2E] p-5 transition-transform duration-300 hover:-translate-y-2">
-                    
+                <!-- Favorite Button -->
+                <button
+                  type="button"
+                  data-action="favorite"
+                  data-track="midnight-frequencies"
+                  aria-label="Add Midnight Frequencies to favorites"
+                  aria-pressed="false"
+                  class="rounded-full p-2 text-purple-400 transition-colors hover:bg-purple-500/20 hover:text-purple-300 focus-visible:outline-2 focus-visible:outline-purple-300"
+                >
+                  <i data-lucide="heart" class="h-5 w-5"></i>
+                </button>
+              </div>
+            </article>
 
-                    <img
-                        src="assets/images/midnight-frequencies.png"
-                        alt="Midnight Frequencies album artwork"
-                        class="mb-5 aspect-square w-full rounded-lg object-cover"
-                        loading="lazy"
-                    >
+            <!-- TRACK 2: Neon Ghosts -->
+            <article
+              class="flex h-full flex-col rounded-xl bg-[#211C2E] p-5 transition-transform duration-300 hover:-translate-y-2"
+            >
+              <img
+                src="assets/images/neon-ghosts.png"
+                alt="Neon Ghosts album artwork"
+                class="mb-5 aspect-square w-full rounded-lg object-cover"
+                loading="lazy"
+              />
 
-                    <p class="mb-2 text-xs font-semibold uppercase tracking-widest text-purple-400">
-                        Single • 2026
-                    </p>
+              <p
+                class="mb-2 text-xs font-semibold uppercase tracking-widest text-purple-400"
+              >
+                Single • 2026
+              </p>
 
-                    <h3 class="mb-3 text-xl font-bold text-white">
-                        Midnight Frequencies
-                    </h3>
+              <h3 class="mb-3 text-xl font-bold text-white">Neon Ghosts</h3>
 
-                    <p class="text-sm leading-relaxed text-gray-400">
-                        A slow-burning electronic track built on distant
-                        synths and cinematic tension.
-                    </p>
-                    <!-- Track Controls -->
-                    <div class="mt-auto flex items-center justify-between pt-6">
+              <p class="text-sm leading-relaxed text-gray-400">
+                Haunting melodies drift through neon-lit soundscapes, blurring
+                the line between memory and reality.
+              </p>
 
-                        <!-- Play Button -->
-                        <button
-                            type="button"
-                            data-action="play"
-                            data-track="midnight-frequencies"
-                            aria-label="Play Midnight Frequencies"
-                            class="flex items-center gap-2 rounded-lg bg-purple-600 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-purple-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-300"
-                        >
-                            <i data-lucide="play" class="h-4 w-4"></i>
-                            <span>Play</span>
-                        </button>
+              <!-- Track Controls -->
+              <div class="mt-auto flex items-center justify-between pt-6">
+                <button
+                  type="button"
+                  data-action="play"
+                  data-track="neon-ghosts"
+                  aria-label="Play Neon Ghosts"
+                  class="flex items-center gap-2 rounded-lg bg-purple-600 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-purple-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-300"
+                >
+                  <i data-lucide="play" class="h-4 w-4"></i>
+                  <span>Play</span>
+                </button>
 
-                        <!-- Favorite Button -->
-                        <button
-                            type="button"
-                            data-action="favorite"
-                            data-track="midnight-frequencies"
-                            aria-label="Add Midnight Frequencies to favorites"
-                            aria-pressed="false"
-                            class="rounded-full p-2 text-purple-400 transition-colors hover:bg-purple-500/20 hover:text-purple-300 focus-visible:outline-2 focus-visible:outline-purple-300"
-                        >
-                            <i data-lucide="heart" class="h-5 w-5"></i>
-                        </button>
+                <button
+                  type="button"
+                  data-action="favorite"
+                  data-track="neon-ghosts"
+                  aria-label="Add Neon Ghosts to favorites"
+                  aria-pressed="false"
+                  class="rounded-full p-2 text-purple-400 transition-colors hover:bg-purple-500/20 hover:text-purple-300 focus-visible:outline-2 focus-visible:outline-purple-300"
+                >
+                  <i data-lucide="heart" class="h-5 w-5"></i>
+                </button>
+              </div>
+            </article>
 
-                    </div>
+            <!-- TRACK 3: Afterglow Static -->
+            <article
+              class="flex h-full flex-col rounded-xl bg-[#211C2E] p-5 transition-transform duration-300 hover:-translate-y-2"
+            >
+              <img
+                src="assets/images/afterglow-static.png"
+                alt="Afterglow Static album artwork"
+                class="mb-5 aspect-square w-full rounded-lg object-cover"
+                loading="lazy"
+              />
 
-                </article>
+              <p
+                class="mb-2 text-xs font-semibold uppercase tracking-widest text-purple-400"
+              >
+                Single • 2026
+              </p>
 
-                <!-- TRACK 2: Neon Ghosts -->
-                <article class="flex h-full flex-col rounded-xl bg-[#211C2E] p-5 transition-transform duration-300 hover:-translate-y-2">
-                    <img
-                        src="assets/images/neon-ghosts.png"
-                        alt="Neon Ghosts album artwork"
-                        class="mb-5 aspect-square w-full rounded-lg object-cover"
-                        loading="lazy"
-                    >
+              <h3 class="mb-3 text-xl font-bold text-white">
+                Afterglow Static
+              </h3>
 
-                    <p class="mb-2 text-xs font-semibold uppercase tracking-widest text-purple-400">
-                        Single • 2026
-                    </p>
+              <p class="text-sm leading-relaxed text-gray-400">
+                A hypnotic blend of distorted synths, pulsing rhythms, and the
+                fading warmth of a midnight horizon.
+              </p>
 
-                    <h3 class="mb-3 text-xl font-bold text-white">
-                        Neon Ghosts
-                    </h3>
+              <!-- Track Controls -->
+              <div class="mt-auto flex items-center justify-between pt-6">
+                <button
+                  type="button"
+                  data-action="play"
+                  data-track="afterglow-static"
+                  aria-label="Play Afterglow Static"
+                  class="flex items-center gap-2 rounded-lg bg-purple-600 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-purple-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-300"
+                >
+                  <i data-lucide="play" class="h-4 w-4"></i>
+                  <span>Play</span>
+                </button>
 
-                    <p class="text-sm leading-relaxed text-gray-400">
-                        Haunting melodies drift through neon-lit soundscapes,
-                        blurring the line between memory and reality.
-                    </p>
-                    
-                    <!-- Track Controls -->
-                    <div class="mt-auto flex items-center justify-between pt-6">
-
-                        <button
-                            type="button"
-                            data-action="play"
-                            data-track="neon-ghosts"
-                            aria-label="Play Neon Ghosts"
-                            class="flex items-center gap-2 rounded-lg bg-purple-600 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-purple-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-300"
-                        >
-                            <i data-lucide="play" class="h-4 w-4"></i>
-                            <span>Play</span>
-                        </button>
-
-                        <button
-                            type="button"
-                            data-action="favorite"
-                            data-track="neon-ghosts"
-                            aria-label="Add Neon Ghosts to favorites"
-                            aria-pressed="false"
-                            class="rounded-full p-2 text-purple-400 transition-colors hover:bg-purple-500/20 hover:text-purple-300 focus-visible:outline-2 focus-visible:outline-purple-300"
-                        >
-                            <i data-lucide="heart" class="h-5 w-5"></i>
-                        </button>
-
-                    </div>
-
-
-                </article>
-
-                <!-- TRACK 3: Afterglow Static -->
-                <article class="flex h-full flex-col rounded-xl bg-[#211C2E] p-5 transition-transform duration-300 hover:-translate-y-2">
-
-                    <img
-                        src="assets/images/afterglow-static.png"
-                        alt="Afterglow Static album artwork"
-                        class="mb-5 aspect-square w-full rounded-lg object-cover"
-                        loading="lazy"
-                    >
-
-                    <p class="mb-2 text-xs font-semibold uppercase tracking-widest text-purple-400">
-                        Single • 2026
-                    </p>
-
-                    <h3 class="mb-3 text-xl font-bold text-white">
-                        Afterglow Static
-                    </h3>
-
-                    <p class="text-sm leading-relaxed text-gray-400">
-                        A hypnotic blend of distorted synths, pulsing rhythms,
-                        and the fading warmth of a midnight horizon.
-                    </p>
-                    
-                    
-                        <!-- Track Controls -->
-                        <div class="mt-auto flex items-center justify-between pt-6">
-
-                            <button
-                                type="button"
-                                data-action="play"
-                                data-track="afterglow-static"
-                                aria-label="Play Afterglow Static"
-                                class="flex items-center gap-2 rounded-lg bg-purple-600 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-purple-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-300"
-                            >
-                                <i data-lucide="play" class="h-4 w-4"></i>
-                                <span>Play</span>
-                            </button>
-
-                            <button
-                                type="button"
-                                data-action="favorite"
-                                data-track="afterglow-static"
-                                aria-label="Add Afterglow Static to favorites"
-                                aria-pressed="false"
-                                class="rounded-full p-2 text-purple-400 transition-colors hover:bg-purple-500/20 hover:text-purple-300 focus-visible:outline-2 focus-visible:outline-purple-300"
-                            >
-                                <i data-lucide="heart" class="h-5 w-5"></i>
-                            </button>
-
-                        </div>
-
-
-
-                </article>
-
-            </div>
-
+                <button
+                  type="button"
+                  data-action="favorite"
+                  data-track="afterglow-static"
+                  aria-label="Add Afterglow Static to favorites"
+                  aria-pressed="false"
+                  class="rounded-full p-2 text-purple-400 transition-colors hover:bg-purple-500/20 hover:text-purple-300 focus-visible:outline-2 focus-visible:outline-purple-300"
+                >
+                  <i data-lucide="heart" class="h-5 w-5"></i>
+                </button>
+              </div>
+            </article>
+          </div>
         </div>
+      </section>
 
-    </section>
+      <!-- ABOUT SECTION -->
+      <section id="about" class="scroll-mt-20 bg-[#15111F] px-6 py-24">
+        <!-- Main Container -->
+        <div class="mx-auto max-w-6xl">
+          <!-- Two Column Layout -->
+          <div class="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
+            <!-- Artist Image -->
+            <div class="overflow-hidden rounded-2xl">
+              <img
+                src="assets/images/artist-echo.png"
+                alt="Mysterious silhouette of ECHO NOVA performing"
+                class="aspect-[4/5] w-full object-cover object-center"
+                loading="lazy"
+              />
+            </div>
 
-</main>
+            <!-- Artist Information -->
+            <div>
+              <!-- Subtitle -->
+              <p
+                class="mb-4 text-sm font-semibold uppercase tracking-widest text-purple-400"
+              >
+                Behind the Sound
+              </p>
 
+              <!-- Heading -->
+              <h2 class="mb-6 text-4xl font-bold text-white">
+                The Artist Behind the Atmosphere.
+              </h2>
 
-</body>
+              <!-- Biography -->
+              <p class="mb-5 leading-relaxed text-gray-400">
+                ECHO NOVA creates atmospheric electronic music rooted in
+                emotion, movement, and contrast. Blending ambient textures,
+                pulsing rhythms, and cinematic energy, the project explores the
+                space between silence and distortion.
+              </p>
+
+              <p class="mb-8 leading-relaxed text-gray-400">
+                Little is known about the figure behind the sound. ECHO NOVA
+                exists more as a presence than a persona, defined by shadow,
+                light, and the feeling each track leaves behind.
+              </p>
+
+              <!-- Artist Facts -->
+              <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <!-- Genre -->
+                <div
+                  class="rounded-xl border border-purple-500/20 bg-[#211C2E] p-5"
+                >
+                  <p
+                    class="mb-2 text-xs font-semibold uppercase tracking-widest text-purple-400"
+                  >
+                    Genre
+                  </p>
+                  <p class="font-medium text-white">Electronic / Synthwave</p>
+                </div>
+
+                <!-- Origin -->
+                <div
+                  class="rounded-xl border border-purple-500/20 bg-[#211C2E] p-5"
+                >
+                  <p
+                    class="mb-2 text-xs font-semibold uppercase tracking-widest text-purple-400"
+                  >
+                    Origin
+                  </p>
+                  <p class="font-medium text-white">Undisclosed</p>
+                </div>
+
+                <!-- Musical Style -->
+                <div
+                  class="rounded-xl border border-purple-500/20 bg-[#211C2E] p-5"
+                >
+                  <p
+                    class="mb-2 text-xs font-semibold uppercase tracking-widest text-purple-400"
+                  >
+                    Known For
+                  </p>
+                  <p class="font-medium text-white">Cinematic Soundscapes</p>
+                </div>
+
+                <!-- Latest Release -->
+                <div
+                  class="rounded-xl border border-purple-500/20 bg-[#211C2E] p-5"
+                >
+                  <p
+                    class="mb-2 text-xs font-semibold uppercase tracking-widest text-purple-400"
+                  >
+                    Latest Release
+                  </p>
+                  <p class="font-medium text-white">Midnight Frequencies</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>

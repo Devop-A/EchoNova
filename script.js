@@ -2,9 +2,9 @@ console.log("ECHO NOVA loaded successfully");
 
 // Initialize Lucide icons
 if (window.lucide) {
-    lucide.createIcons();
+  lucide.createIcons();
 } else {
-    console.error("Lucide failed to load.");
+  console.error("Lucide failed to load.");
 }
 
 // Find the button using its ID.
@@ -15,6 +15,5 @@ const message = document.getElementById("message");
 
 // Listen for a button click.
 button.addEventListener("click", function () {
-
-    message.textContent = "Welcome to ECHO NOVA!";
-    });
+  message.textContent = "Welcome to ECHO NOVA!";
+});
