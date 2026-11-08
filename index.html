@@ -38,7 +38,9 @@
         </a>
 
         <!-- Navigation Links -->
-        <div class="flex flex-wrap items-center gap-5 text-sm text-gray-200">
+        <div
+          class="hidden flex-wrap items-center gap-5 text-sm text-gray-200 md:flex"
+        >
           <a href="#home" class="hover:text-purple-400 transition-colors">
             Home
           </a>
@@ -624,6 +626,77 @@
       aria-label="Music player"
       class="fixed inset-x-0 bottom-0 z-50 border-t border-purple-500/30 bg-[#191425]/95 text-white shadow-2xl backdrop-blur-md"
     >
+      <!-- EXPANDED MOBILE PLAYER PANEL -->
+      <div
+        id="mobile-player-panel"
+        class="absolute inset-x-0 bottom-full hidden max-h-[70vh] overflow-y-auto border-t border-purple-500/30 bg-[#191425] px-5 py-6 shadow-2xl md:hidden"
+      >
+        <div class="mx-auto flex max-w-sm flex-col items-center gap-4">
+          <!-- Large Album Artwork -->
+          <img
+            id="mobile-player-artwork"
+            src="assets/images/midnight-frequencies.png"
+            alt="Midnight Frequencies album artwork"
+            class="h-36 w-36 rounded-xl object-cover shadow-xl"
+          />
+
+          <!-- Current Track -->
+          <div class="text-center">
+            <h3 id="mobile-player-title" class="text-xl font-bold text-white">
+              Midnight Frequencies
+            </h3>
+
+            <p class="mt-1 text-sm text-purple-300">ECHO NOVA</p>
+          </div>
+
+          <!-- Playback Time -->
+          <p id="mobile-player-time" class="text-sm tabular-nums text-gray-400">
+            0:00 / 0:00
+          </p>
+
+          <!-- Mobile Volume Controls -->
+          <div
+            class="flex w-full items-center gap-3 rounded-xl bg-[#292039] p-4"
+          >
+            <!-- Mute Button -->
+            <button
+              id="mobile-player-mute"
+              type="button"
+              aria-label="Mute audio"
+              class="cursor-pointer text-purple-300"
+            >
+              <span id="mobile-volume-on-icon">
+                <i
+                  data-lucide="volume-2"
+                  class="h-5 w-5"
+                  aria-hidden="true"
+                ></i>
+              </span>
+
+              <span id="mobile-volume-off-icon" class="hidden">
+                <i
+                  data-lucide="volume-x"
+                  class="h-5 w-5"
+                  aria-hidden="true"
+                ></i>
+              </span>
+            </button>
+
+            <!-- Mobile Volume Slider -->
+            <input
+              id="mobile-player-volume"
+              type="range"
+              min="0"
+              max="1"
+              step="0.05"
+              value="0.8"
+              aria-label="Mobile volume"
+              class="min-w-0 flex-1 cursor-pointer accent-purple-500"
+            />
+          </div>
+        </div>
+      </div>
+
       <!-- Player Container -->
       <div class="mx-auto max-w-6xl px-4 py-3 sm:px-6">
         <!-- Main Player Row -->
@@ -689,6 +762,26 @@
               class="cursor-pointer text-gray-300 transition-colors hover:text-purple-400"
             >
               <i data-lucide="skip-forward" class="h-5 w-5"></i>
+            </button>
+            <!-- Expand Mobile Player -->
+            <button
+              id="player-expand"
+              type="button"
+              aria-label="Expand music player"
+              aria-expanded="false"
+              aria-controls="mobile-player-panel"
+              class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-lg text-purple-300 transition-colors hover:bg-purple-500/20 md:hidden"
+            >
+              <span
+                id="player-expand-icon"
+                class="transition-transform duration-200"
+              >
+                <i
+                  data-lucide="chevron-up"
+                  class="h-5 w-5"
+                  aria-hidden="true"
+                ></i>
+              </span>
             </button>
           </div>
 

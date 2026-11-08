@@ -390,3 +390,238 @@ audio.addEventListener("ended", function () {
 
 // Set our initial song
 loadTrack(0);
+
+// ====================================
+// ECHO NOVA - FAVORITES SYSTEM
+// ====================================
+
+// The name we'll use for browser storage
+const FAVORITES_STORAGE_KEY = "echo-nova-favorites";
+
+// Array containing the IDs of favorite songs
+let favorites = [];
+
+// 1. LOAD SAVED FAVORITES
+try {
+  const savedFavorites = localStorage.getItem(FAVORITES_STORAGE_KEY);
+
+  if (savedFavorites !== null) {
+    const parsedFavorites = JSON.parse(savedFavorites);
+
+    // Make sure the saved value is actually an array
+    if (Array.isArray(parsedFavorites)) {
+      // Keep only IDs that exist in our playlist
+      favorites = parsedFavorites.filter(function (id) {
+        return tracks.some(function (track) {
+          return track.id === id;
+        });
+      });
+    }
+  }
+} catch (error) {
+  console.warn("Could not load saved favorites:", error);
+}
+
+// 2. FIND ALL FAVORITE BUTTONS
+const favoriteButtons = document.querySelectorAll(
+  '[data-action="favorite"][data-track]',
+);
+
+// 3. SAVE FAVORITES TO THE BROWSER
+function saveFavorites() {
+  try {
+    localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(favorites));
+  } catch (error) {
+    console.warn("Could not save favorites:", error);
+  }
+}
+
+// 4. UPDATE THE HEART ICONS
+function updateFavoriteButtons() {
+  favoriteButtons.forEach(function (button) {
+    const trackId = button.dataset.track;
+
+    const isFavorite = favorites.includes(trackId);
+
+    // Find this song's title
+    const track = tracks.find(function (song) {
+      return song.id === trackId;
+    });
+
+    if (!track) {
+      return;
+    }
+
+    // Update the toggle's accessibility state
+    button.setAttribute("aria-pressed", String(isFavorite));
+
+    button.setAttribute(
+      "aria-label",
+      isFavorite
+        ? `Remove ${track.title} from favorites`
+        : `Add ${track.title} to favorites`,
+    );
+
+    // Lucide replaces our <i> with an <svg>
+    const heartIcon = button.querySelector("svg");
+
+    if (heartIcon) {
+      // Pink when saved, original color otherwise
+      heartIcon.style.color = isFavorite ? "#f472b6" : "";
+
+      // Filled heart when saved, outline otherwise
+      heartIcon.style.fill = isFavorite ? "currentColor" : "none";
+    }
+  });
+}
+
+// 5. LISTEN FOR FAVORITE BUTTON CLICKS
+favoriteButtons.forEach(function (button) {
+  button.addEventListener("click", function () {
+    const trackId = button.dataset.track;
+
+    // Only accept songs in our playlist
+    const trackExists = tracks.some(function (track) {
+      return track.id === trackId;
+    });
+
+    if (!trackExists) {
+      return;
+    }
+
+    if (favorites.includes(trackId)) {
+      // Remove an existing favorite
+      favorites = favorites.filter(function (id) {
+        return id !== trackId;
+      });
+    } else {
+      // Add a new favorite
+      favorites.push(trackId);
+    }
+
+    // Save the updated list
+    saveFavorites();
+
+    // Update the heart icons
+    updateFavoriteButtons();
+  });
+});
+
+// 6. DISPLAY SAVED FAVORITES ON PAGE LOAD
+updateFavoriteButtons();
+
+// ====================================
+// ECHO NOVA - EXPANDABLE MOBILE PLAYER
+// ====================================
+
+// Get the mobile player elements
+const mobileExpandButton = document.getElementById("player-expand");
+
+const mobileExpandIcon = document.getElementById("player-expand-icon");
+
+const mobilePlayerPanel = document.getElementById("mobile-player-panel");
+
+// Open or close the mobile panel
+function setMobilePlayerOpen(isOpen) {
+  // Show or hide the panel
+  mobilePlayerPanel.classList.toggle("hidden", !isOpen);
+
+  // Rotate the arrow when open
+  mobileExpandIcon.classList.toggle("rotate-180", isOpen);
+
+  // Update accessibility information
+  mobileExpandButton.setAttribute("aria-expanded", String(isOpen));
+
+  mobileExpandButton.setAttribute(
+    "aria-label",
+    isOpen ? "Collapse music player" : "Expand music player",
+  );
+}
+
+// Handle clicks on the expansion button
+mobileExpandButton.addEventListener("click", function () {
+  // Read the current state
+  const isOpen = mobileExpandButton.getAttribute("aria-expanded") === "true";
+
+  // Switch to the opposite state
+  setMobilePlayerOpen(!isOpen);
+});
+
+// ====================================
+// MOBILE PLAYER - AUDIO SYNCHRONIZATION
+// ====================================
+
+// Get the expanded panel elements
+const mobileArtwork = document.getElementById("mobile-player-artwork");
+
+const mobileTitle = document.getElementById("mobile-player-title");
+
+const mobileTime = document.getElementById("mobile-player-time");
+
+const mobileVolume = document.getElementById("mobile-player-volume");
+
+const mobileMuteButton = document.getElementById("mobile-player-mute");
+
+const mobileVolumeOnIcon = document.getElementById("mobile-volume-on-icon");
+
+const mobileVolumeOffIcon = document.getElementById("mobile-volume-off-icon");
+
+// Keep the mobile panel synchronized with the main player
+function updateMobilePlayer() {
+  // Copy current track information
+  mobileArtwork.src = playerArtwork.src;
+
+  mobileArtwork.alt = playerArtwork.alt;
+
+  mobileTitle.textContent = playerTitle.textContent;
+
+  // Display current time and duration
+  mobileTime.textContent = `${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`;
+
+  // Match the main player's volume
+  mobileVolume.value = audio.volume;
+
+  const isSilent = audio.muted || audio.volume === 0;
+
+  // Show the correct volume icon
+  mobileVolumeOnIcon.classList.toggle("hidden", isSilent);
+
+  mobileVolumeOffIcon.classList.toggle("hidden", !isSilent);
+
+  mobileMuteButton.setAttribute(
+    "aria-label",
+    isSilent ? "Unmute audio" : "Mute audio",
+  );
+}
+
+// Change volume from the expanded panel
+mobileVolume.addEventListener("input", function () {
+  audio.volume = Number(mobileVolume.value);
+
+  audio.muted = false;
+});
+
+// Mute and unmute using the mobile button
+mobileMuteButton.addEventListener("click", function () {
+  if (audio.volume === 0) {
+    audio.volume = 0.8;
+    audio.muted = false;
+  } else {
+    audio.muted = !audio.muted;
+  }
+});
+
+// Synchronize when a new track begins loading
+audio.addEventListener("loadstart", updateMobilePlayer);
+
+// Synchronize when track metadata becomes available
+audio.addEventListener("loadedmetadata", updateMobilePlayer);
+
+// Synchronize timestamps during playback
+audio.addEventListener("timeupdate", updateMobilePlayer);
+
+// Synchronize volume and mute changes
+audio.addEventListener("volumechange", updateMobilePlayer);
+
+// Set the initial mobile player information
+updateMobilePlayer();
