@@ -22,11 +22,11 @@
   <body class="bg-[#10101C] text-white min-h-screen pb-36">
     <!-- Website Header -->
     <header
-      class="sticky top-0 z-50 bg-[#191625]/95 border-b border-purple-500/20 backdrop-blur-md"
+      class="sticky top-0 z-50 border-b border-purple-500/20 bg-[#191625]/95 backdrop-blur-md"
     >
       <!-- Navigation Container -->
       <nav
-        class="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"
+        class="relative mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4"
         aria-label="Main navigation"
       >
         <!-- Artist Branding -->
@@ -37,29 +37,92 @@
           ECHO NOVA
         </a>
 
-        <!-- Navigation Links -->
+        <!-- DESKTOP NAVIGATION LINKS -->
         <div
           class="hidden flex-wrap items-center gap-5 text-sm text-gray-200 md:flex"
         >
-          <a href="#home" class="hover:text-purple-400 transition-colors">
+          <a href="#home" class="transition-colors hover:text-purple-400">
             Home
           </a>
 
-          <a href="#music" class="hover:text-purple-400 transition-colors">
+          <a href="#music" class="transition-colors hover:text-purple-400">
             Music
           </a>
 
-          <a href="#about" class="hover:text-purple-400 transition-colors">
+          <a href="#about" class="transition-colors hover:text-purple-400">
             About
           </a>
 
-          <a href="#shows" class="hover:text-purple-400 transition-colors">
+          <a href="#shows" class="transition-colors hover:text-purple-400">
             Shows
           </a>
 
-          <a href="#contact" class="hover:text-purple-400 transition-colors">
+          <a href="#contact" class="transition-colors hover:text-purple-400">
             Contact
           </a>
+        </div>
+
+        <!-- MOBILE MENU BUTTON -->
+        <button
+          id="mobile-menu-button"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+          class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg text-purple-300 transition-colors hover:bg-purple-500/20 focus-visible:outline-2 focus-visible:outline-purple-400 md:hidden"
+        >
+          <!-- Hamburger Icon -->
+          <span id="mobile-menu-open-icon">
+            <i data-lucide="menu" class="h-6 w-6" aria-hidden="true"></i>
+          </span>
+
+          <!-- Close Icon -->
+          <span id="mobile-menu-close-icon" class="hidden">
+            <i data-lucide="x" class="h-6 w-6" aria-hidden="true"></i>
+          </span>
+        </button>
+
+        <!-- MOBILE NAVIGATION DROPDOWN -->
+        <div
+          id="mobile-nav"
+          class="absolute inset-x-0 top-full z-50 hidden border-t border-purple-500/20 bg-[#191425] p-4 shadow-2xl md:hidden"
+        >
+          <div class="mx-auto flex max-w-6xl flex-col gap-2">
+            <a
+              href="#home"
+              class="rounded-lg px-4 py-3 text-gray-200 transition-colors hover:bg-purple-500/20 hover:text-purple-300"
+            >
+              Home
+            </a>
+
+            <a
+              href="#music"
+              class="rounded-lg px-4 py-3 text-gray-200 transition-colors hover:bg-purple-500/20 hover:text-purple-300"
+            >
+              Music
+            </a>
+
+            <a
+              href="#about"
+              class="rounded-lg px-4 py-3 text-gray-200 transition-colors hover:bg-purple-500/20 hover:text-purple-300"
+            >
+              About
+            </a>
+
+            <a
+              href="#shows"
+              class="rounded-lg px-4 py-3 text-gray-200 transition-colors hover:bg-purple-500/20 hover:text-purple-300"
+            >
+              Shows
+            </a>
+
+            <a
+              href="#contact"
+              class="rounded-lg px-4 py-3 text-gray-200 transition-colors hover:bg-purple-500/20 hover:text-purple-300"
+            >
+              Contact
+            </a>
+          </div>
         </div>
       </nav>
     </header>

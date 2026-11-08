@@ -625,3 +625,102 @@ audio.addEventListener("volumechange", updateMobilePlayer);
 
 // Set the initial mobile player information
 updateMobilePlayer();
+
+// ====================================
+// ECHO NOVA - MOBILE NAVIGATION
+// ====================================
+
+// Find our mobile navigation elements
+const mobileMenuButton = document.getElementById("mobile-menu-button");
+
+const mobileNav = document.getElementById("mobile-nav");
+
+const mobileMenuOpenIcon = document.getElementById("mobile-menu-open-icon");
+
+const mobileMenuCloseIcon = document.getElementById("mobile-menu-close-icon");
+
+// Function to open or close the mobile menu
+function setMobileMenuOpen(isOpen) {
+  // Show or hide the navigation dropdown
+  mobileNav.classList.toggle("hidden", !isOpen);
+
+  // Switch between the Menu and X icons
+  mobileMenuOpenIcon.classList.toggle("hidden", isOpen);
+
+  mobileMenuCloseIcon.classList.toggle("hidden", !isOpen);
+
+  // Update the button's accessibility information
+  mobileMenuButton.setAttribute("aria-expanded", String(isOpen));
+
+  mobileMenuButton.setAttribute(
+    "aria-label",
+    isOpen ? "Close navigation menu" : "Open navigation menu",
+  );
+}
+
+// Open or close the menu when the button is clicked
+mobileMenuButton.addEventListener("click", function () {
+  // Check if the menu is already open
+  const isOpen = mobileMenuButton.getAttribute("aria-expanded") === "true";
+
+  // Switch to the opposite state
+  setMobileMenuOpen(!isOpen);
+});
+
+// Make sure the menu starts closed
+setMobileMenuOpen(false);
+
+// ====================================
+// CLOSE MENU AFTER NAVIGATION
+// ====================================
+
+// Find all links inside our mobile navigation
+const mobileNavLinks = mobileNav.querySelectorAll("a");
+
+// Add a click listener to each navigation link
+mobileNavLinks.forEach(function (link) {
+  link.addEventListener("click", function () {
+    // Close the menu after selecting a section
+    setMobileMenuOpen(false);
+  });
+});
+
+// ====================================
+// MOBILE MENU KEYBOARD SUPPORT
+// ====================================
+
+// Close the navigation menu when Escape is pressed
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    const isOpen = mobileMenuButton.getAttribute("aria-expanded") === "true";
+
+    if (isOpen) {
+      setMobileMenuOpen(false);
+
+      // Return keyboard focus to the menu button
+      mobileMenuButton.focus();
+    }
+  }
+});
+
+// ====================================
+// MOBILE MENU RESPONSIVE BEHAVIOR
+// ====================================
+
+window.addEventListener("resize", function () {
+  // Tailwind's md breakpoint starts at 768px
+  if (window.innerWidth >= 768) {
+    setMobileMenuOpen(false);
+  }
+});
+
+// Close the menu when clicking outside it
+document.addEventListener("click", function (event) {
+  const clickedInsideMenu = mobileNav.contains(event.target);
+
+  const clickedMenuButton = mobileMenuButton.contains(event.target);
+
+  if (!clickedInsideMenu && !clickedMenuButton) {
+    setMobileMenuOpen(false);
+  }
+});

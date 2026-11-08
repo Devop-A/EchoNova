@@ -232,6 +232,9 @@
   .top-0 {
     top: 0px;
   }
+  .top-full {
+    top: 100%;
+  }
   .bottom-0 {
     bottom: 0px;
   }
@@ -838,6 +841,9 @@
   }
   .focus-visible\:outline-purple-300:focus-visible {
     outline-color: var(--color-purple-300);
+  }
+  .focus-visible\:outline-purple-400:focus-visible {
+    outline-color: var(--color-purple-400);
   }
   @media (prefers-reduced-motion: reduce) {
     .motion-reduce\:scroll-auto {
