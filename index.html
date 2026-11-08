@@ -59,26 +59,72 @@
 </header>
 
 
-    <main class="text-center p-10">
+    
+<main>
 
-        <h2 class="text-4xl font-bold mb-4">
-            SOUND WITHOUT LIMITS.
-        </h2>
+    <!-- HERO SECTION -->
+    <section
+        id="home"
+        class="relative flex min-h-[85vh] items-center justify-center overflow-hidden bg-[#10101C] px-6 py-24 text-center"
+    >
 
-        <p class="text-gray-400 mb-8">
-            Music shaped by shadow, light, and atmosphere.
-        </p>
+        <!-- Background Image -->
+        <div
+            class="absolute inset-0 bg-cover bg-center opacity-50"
+            style="background-image: url('assets/images/echo-nova-hero.jpg');"
+            aria-hidden="true"
+        ></div>
 
-        <button
-            id="test-button"
-            type="button"
-            class="bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-lg cursor-pointer">
-            Click Me
-        </button>
+        <!-- Dark Gradient Overlay -->
+        <div
+            class="absolute inset-0 bg-gradient-to-b from-[#10101C]/70 via-purple-950/40 to-[#10101C]"
+            aria-hidden="true"
+        ></div>
 
-        <p id="message" class="mt-6 text-purple-300" aria-live="polite"></p>
+        <!-- Hero Content -->
+        <div class="relative z-10 mx-auto max-w-4xl">
 
-    </main>
+            <!-- Small Subtitle -->
+            <p class="mb-5 text-sm font-semibold uppercase tracking-[0.3em] text-purple-400">
+                The Sound of the Unknown
+            </p>
+
+            <!-- Main Headline -->
+            <h1 class="mb-6 text-5xl font-extrabold tracking-tight text-white md:text-7xl">
+                SOUND WITHOUT LIMITS.
+            </h1>
+
+            <!-- Description -->
+            <p class="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-gray-300">
+                Immersive electronic music shaped by shadow,
+                light, and atmosphere.
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-wrap justify-center gap-4">
+
+                <a
+                    href="#music"
+                    class="rounded-lg bg-purple-600 px-8 py-3 font-semibold text-white transition-colors hover:bg-purple-700"
+                >
+                    Explore Music
+                </a>
+
+                <a
+                    href="#about"
+                    class="rounded-lg border border-purple-400 px-8 py-3 font-semibold text-purple-200 transition-colors hover:bg-purple-500/20"
+                >
+                    About the Artist
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
 
 </body>
 </html>
